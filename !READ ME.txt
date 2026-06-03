@@ -1,0 +1,11 @@
+GILLES EXPRESS
+==============
+
+To use the app:
+
+1. Open the file "invite.html" in this folder
+2. Click "Copy" to copy the link
+3. Paste it into your browser's address bar
+4. Make sure you are on the same Wi-Fi network as Léopold
+
+That's it!

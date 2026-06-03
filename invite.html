@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Gilles Express — Open the app</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.10);max-width:520px;width:100%;padding:48px 40px;text-align:center}
+.logo{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px}
+.logo-icon{background:#0055A4;border-radius:10px;width:48px;height:48px;display:flex;align-items:center;justify-content:center}
+.logo-text h1{font-size:1.5rem;font-weight:700;color:#0055A4;line-height:1}
+.logo-text small{font-size:.65rem;color:#aaa;display:block;margin-top:3px}
+.divider{border:none;border-top:1.5px solid #edf0f5;margin:0 0 28px}
+p.instructions{font-size:1rem;color:#444;line-height:1.7;margin-bottom:24px}
+.url-box{background:#f0f7ff;border:2px solid #0055A4;border-radius:10px;padding:14px 20px;display:flex;align-items:center;gap:12px;margin-bottom:28px;cursor:pointer}
+.url-box span{font-size:1rem;font-weight:600;color:#0055A4;font-family:monospace;flex:1;text-align:left;word-break:break-all}
+.copy-btn{background:#0055A4;color:#fff;border:none;border-radius:6px;padding:7px 14px;font-size:.8rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:.2s}
+.copy-btn:hover{background:#0044c0}
+.copy-btn.copied{background:#2e7d32}
+.note{font-size:.78rem;color:#999;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">
+    <div class="logo-icon">
+      <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M6 20V10l8-5 8 5v10l-8 5-8-5z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 10l8 5 8-5M14 15v10" stroke="white" stroke-width="1.8"/></svg>
+    </div>
+    <div class="logo-text">
+      <h1>Gilles Express</h1>
+      <small>by Léopold Forest</small>
+    </div>
+  </div>
+  <hr class="divider"/>
+  <p class="instructions">
+    To open the app, please copy the link below and paste it into your browser's address bar.
+  </p>
+  <div class="url-box" onclick="copyLink()">
+    <span id="url-text">http://10.3.0.47:3000</span>
+    <button class="copy-btn" id="copy-btn">Copy</button>
+  </div>
+  <p class="note">Make sure you are connected to the same Wi-Fi network.<br/>The app will open directly in your browser — no installation needed.</p>
+</div>
+<script>
+function copyLink() {
+  const url = document.getElementById('url-text').textContent;
+  navigator.clipboard.writeText(url).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
