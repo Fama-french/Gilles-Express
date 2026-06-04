@@ -14,17 +14,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;min-height:100vh
 .logo-text small{font-size:.65rem;color:#aaa;display:block;margin-top:3px}
 .divider{border:none;border-top:1.5px solid #edf0f5;margin:0 0 28px}
 p.instructions{font-size:1rem;color:#444;line-height:1.7;margin-bottom:24px}
-.url-box{background:#f0f7ff;border:2px solid #0055A4;border-radius:10px;padding:14px 20px;display:flex;align-items:center;gap:12px;margin-bottom:16px;cursor:pointer}
-.url-box span{font-size:1rem;font-weight:600;color:#0055A4;font-family:monospace;flex:1;text-align:left;word-break:break-all}
-.copy-btn{background:#0055A4;color:#fff;border:none;border-radius:6px;padding:7px 14px;font-size:.8rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:.2s}
-.copy-btn:hover{background:#0044c0}
-.copy-btn.copied{background:#2e7d32}
-.steps{font-size:.82rem;color:#666;line-height:1.8;margin-bottom:24px;text-align:left;background:#f7f9fc;border-radius:8px;padding:12px 16px}
+.open-btn{display:inline-block;background:#0055A4;color:#fff;text-decoration:none;border-radius:10px;padding:14px 36px;font-size:1rem;font-weight:700;margin-bottom:28px;transition:.2s}
+.open-btn:hover{background:#0044c0}
 .note{font-size:.78rem;color:#999;line-height:1.6}
-.warning{display:flex;align-items:flex-start;gap:10px;background:#fff8e1;border:1.5px solid #f9a825;border-radius:10px;padding:14px 16px;margin-bottom:28px;text-align:left}
-.warning-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
-.warning p{font-size:.85rem;color:#7a5800;line-height:1.6}
-.warning strong{color:#5a3e00}
 </style>
 </head>
 <body>
@@ -39,31 +31,8 @@ p.instructions{font-size:1rem;color:#444;line-height:1.7;margin-bottom:24px}
     </div>
   </div>
   <hr class="divider"/>
-  <div class="warning">
-    <span class="warning-icon">⚠️</span>
-    <p><strong>Linagora Wi-Fi only.</strong> This app runs on a local server and is only accessible when connected to the <strong>Linagora</strong> Wi-Fi network. It will not work on mobile data or any other network.</p>
-  </div>
-  <div class="url-box" onclick="copyLink()">
-    <span id="url-text">http://10.3.0.45:8000</span>
-    <button class="copy-btn" id="copy-btn">Copy</button>
-  </div>
-  <div class="steps">
-    1. Click <strong>Copy</strong> above<br/>
-    2. Open a <strong>new tab</strong> in your browser<br/>
-    3. Paste the address in the address bar and press <strong>Enter</strong>
-  </div>
+  <a class="open-btn" href="https://doorstep-agent.vercel.app">Open Gilles Express</a>
   <p class="note">No installation needed — the app opens directly in your browser.</p>
 </div>
-<script>
-function copyLink() {
-  const url = document.getElementById('url-text').textContent;
-  navigator.clipboard.writeText(url).then(() => {
-    const btn = document.getElementById('copy-btn');
-    btn.textContent = 'Copied!';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-  });
-}
-</script>
 </body>
 </html>
